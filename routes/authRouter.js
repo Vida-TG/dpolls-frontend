@@ -6,7 +6,7 @@ const User = require('../models/UserModel')
 router.post('/register', async (req, res, next) => {
     try{
         const { email, password } = req.body
-        if(!email || !password) res.send("SAD")
+        if(!email || !password) res.send("NOT APPYYYYYYYY")
         const userExists = await User.findOne({email})
     }catch(error){
 
