@@ -5,6 +5,7 @@ require('dotenv').config()
 
 
 const authRoutes = require('./routes/authRouter')
+require('./connectMongoDB')
 
 const app = express()
 app.use(morgan('dev'))
