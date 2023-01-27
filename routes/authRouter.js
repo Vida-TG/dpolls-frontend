@@ -10,7 +10,8 @@ router.post('/register', async (req, res, next) => {
         if(!email || !password) res.send("NOT APPYYYYYYYY")
         const userExists = await User.findOne({email})
         if (!userExists) {
-            const newUser = new  User()
+            const hashedPassword = bcrypt.hash(password, 10)
+            const newUser = new  User({email, password})
         }
     }catch(error){
 
