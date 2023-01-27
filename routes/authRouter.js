@@ -7,11 +7,12 @@ const User = require('../models/UserModel')
 router.post('/register', async (req, res, next) => {
     try{
         const { email, password } = req.body
-        if(!email || !password) res.send("NOT APPYYYYYYYY")
+        if(!email || !password) res.send("NOT HAPPYYYYYYYY")
         const userExists = await User.findOne({email})
         if (!userExists) {
             const hashedPassword = bcrypt.hash(password, 10)
-            const newUser = new  User({email, password})
+            const newUser = new User({email, hashedPassword})
+            const savedUser = await newUser.save()
         }
     }catch(error){
 
