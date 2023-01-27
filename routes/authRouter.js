@@ -10,6 +10,7 @@ router.post('/register', async (req, res, next) => {
     try{
         const { email, password } = req.body
         const result = await authSchema.validateAsync(req.body)
+        res.json(result)
         const userExists = await User.findOne({email})
         if (userExists) {
             const hashedPassword = bcrypt.hash(password, 10)
