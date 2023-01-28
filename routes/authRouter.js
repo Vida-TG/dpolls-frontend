@@ -10,8 +10,8 @@ router.post('/register', async (req, res, next) => {
     try{
         const { email, password } = req.body
         const result = await authSchema.validateAsync({ email, password })
-        console.log(result)
-        next()
+        res.send(result)
+
         /*
         const userExists = await User.findOne({email})
         if (userExists) {
