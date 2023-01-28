@@ -19,7 +19,7 @@ router.post('/register', async (req, res, next) => {
             const savedUser = await newUser.save()
         } */
     }catch(error){
-        throw createError(400, error.message)
+        next(createError(400, error.message))
     }
 })
 
