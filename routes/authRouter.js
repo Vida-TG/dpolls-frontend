@@ -12,10 +12,13 @@ router.post('/register', async (req, res, next) => {
         const result = await authSchema.validateAsync({ email, password })
         
         const userExists = await User.findOne({email})
-        if (userExists) {
+        if (!userExists) {
             const hashedPassword = bcrypt.hash(password, 10)
             const newUser = new User({email, hashedPassword})
             const savedUser = await newUser.save()
+            res.json(savedUser)
+        } else {
+            return next(404, "User exists already")
         }
     }catch(error){
         return next(createError(200, error.message))
