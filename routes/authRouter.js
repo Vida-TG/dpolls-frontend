@@ -1,15 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const CreateError = require('http-errors')
+const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 
 const  { authSchema } = require('../validationSchema')
 const User = require('../models/UserModel')
 
 router.post('/register', async (req, res, next) => {
-    const { email, password } = req.body
-        const result = await authSchema.validateAsync({ email, password })
-        console.log(result)
     try{
         const { email, password } = req.body
         const result = await authSchema.validateAsync({ email, password })
@@ -22,7 +19,7 @@ router.post('/register', async (req, res, next) => {
             const savedUser = await newUser.save()
         } */
     }catch(error){
-        res.send("An error occured")
+        res.send(error.message)
     }
 })
 

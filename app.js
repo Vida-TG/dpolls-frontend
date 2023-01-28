@@ -1,6 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
-const CreateError = require('http-errors')
+const createError = require('http-errors')
 require('dotenv').config()
 
 
@@ -24,7 +24,7 @@ app.get('/', (req, res, next) => {
 app.use('/auth', authRoutes)
 
 app.use((req, res, next) => {
-    const err = new CreateError(404)
+    const err = new createError(404)
     return next(err)
 })
 
