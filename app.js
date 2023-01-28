@@ -1,6 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
-const createError = require('http-errors')
+const CreateError = require('http-errors')
 require('dotenv').config()
 
 
@@ -22,3 +22,15 @@ app.get('/', (req, res, next) => {
 })
 
 app.use('/auth', authRoutes)
+
+app.use((req, res, next) => {
+    const err = new CreateError(404)
+    return next(err)
+})
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500).json({
+        message: err.message
+    });
+    next(err);
+})
