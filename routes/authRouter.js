@@ -11,6 +11,7 @@ router.post('/register', async (req, res, next) => {
         const { email, password } = req.body
         const result = await authSchema.validateAsync({ email, password })
         console.log(result)
+        next()
         /*
         const userExists = await User.findOne({email})
         if (userExists) {
@@ -19,7 +20,7 @@ router.post('/register', async (req, res, next) => {
             const savedUser = await newUser.save()
         } */
     }catch(error){
-        next(createError(400, error.message))
+        return next(createError(200, error.message))
     }
 })
 
