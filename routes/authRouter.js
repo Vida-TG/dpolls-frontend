@@ -1,4 +1,17 @@
+const express = require('express')
+const router = express.Router()
+const createError = require('http-errors')
+const bcrypt = require('bcrypt')
 
+const { signAccessToken } = require('../jwtToken')
+const  { authSchema } = require('../validationSchema')
+const User = require('../models/UserModel')
+
+router.post('/register', async (req, res, next) => {
+    try{
+        const { email, password } = req.body
+        const result = await authSchema.validateAsync({ email, password })
+        
         const userExists = await User.findOne({email})
         if (!userExists) {
             const hashedPassword = (await bcrypt.hash(password, 10)).toString()
