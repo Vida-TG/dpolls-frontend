@@ -5,9 +5,9 @@ module.exports = {
     signAccessToken: (userID) => {
         return new Promise((resolve, reject) => {
             const payload = {
-                name: "Human being"
+                name: "Human ing"
             }
-            const secret = "jfjwjojjbsrgteewgeii jwtauthtoken4fi4f"
+            const secret = "jfjwjojjbsrgteewgewtauthtoken4fi4f"
             const options = {
                 expiresIn: '1d',
                 issuer: 'https://package.com',
