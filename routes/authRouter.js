@@ -3,6 +3,7 @@ const router = express.Router()
 const createError = require('http-errors')
 const bcrypt = require('bcrypt')
 
+const { signAccessToken } = require('../jwtToken')
 const  { authSchema } = require('../validationSchema')
 const User = require('../models/UserModel')
 
@@ -16,7 +17,9 @@ router.post('/register', async (req, res, next) => {
             const hashedPassword = (await bcrypt.hash(password, 10)).toString()
             const newUser = new User({email, password:hashedPassword})
             const savedUser = await newUser.save()
-            res.json(savedUser)
+
+            const accessT =  await signAccessToken(savedUser.id)
+            res.json(accessT)
         } else {
             return next(createError(404, "User exists already"))
         }
