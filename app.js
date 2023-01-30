@@ -12,8 +12,8 @@ app.use(express.json())
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))
 
-app.listen(3200, () => {
-    console.log("Server running on port 3200 running")
+app.listen(3000, () => {
+    console.log("Server on port 3000 running")
 })
 
 app.get('/', (req, res, next) => {
