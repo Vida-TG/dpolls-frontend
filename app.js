@@ -13,7 +13,7 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))
 
 app.listen(3000, () => {
-    console.log("Server on port 3000 running")
+    console.log("Port 3000 running")
 })
 
 app.get('/', (req, res, next) => {
