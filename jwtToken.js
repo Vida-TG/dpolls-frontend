@@ -9,8 +9,8 @@ module.exports = {
             }
             const secret = "jfjwjojjbsrgtehtokdfvbgn en4fi4f"
             const options = {
-                expiresIn: '1h',
-                issuer: 'www.package.com',
+                expiresIn: '3h',
+                issuer: 'https://www.package.com',
                 audience: userID,
             }
             JWT.sign(payload, secret, options, (err, token) => {
