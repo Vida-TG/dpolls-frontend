@@ -7,9 +7,9 @@ module.exports = {
             const payload = {
                 name: "Human"
             }
-            const secret = "jfjwjojjbsrgtehtokdfvbgn en4fi4f"
+            const secret = "jfjwjojjbsrgtehtokdfffrv  n4fi4f"
             const options = {
-                expiresIn: '3h',
+                expiresIn: '1h',
                 issuer: 'https://www.package.com',
                 audience: userID,
             }
