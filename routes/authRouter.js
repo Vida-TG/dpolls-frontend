@@ -21,7 +21,7 @@ router.post('/register', async (req, res, next) => {
             const accessT =  await signAccessToken(savedUser.id)
             res.json(accessT)
         } else {
-            return next(createError(404, "User exists already"))
+            return next(createError(404, "User already exists"))
         }
     }catch(error){
         next(createError(200, error.message))
