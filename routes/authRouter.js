@@ -29,7 +29,7 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', async (req, res, next) => {
-    res.send("LOGIN")
+    res.send("LOGIN PAGE")
 })
 
 router.post('/refresh-token', async (req, res, next) => {
@@ -37,7 +37,7 @@ router.post('/refresh-token', async (req, res, next) => {
 })
 
 router.delete('/logout', async (req, res, next) => {
-    res.send("LOGOUT")
+    res.send("USER LOGGED OUT")
 })
 
 module.exports = router
