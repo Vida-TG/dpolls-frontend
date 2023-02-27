@@ -5,12 +5,12 @@ module.exports = {
     signAccessToken: (userID) => {
         return new Promise((resolve, reject) => {
             const payload = {
-                name: "Human2"
+                name: "Human"
             }
-            const secret = "jfjwjojjbsrgtehtokdfffrvbkvvgh4fi4f"
+            const secret = "jfjwjojjbsrgveefef rgrgrrv tttbkvvgh4fi4f"
             const options = {
                 expiresIn: '1h',
-                issuer: 'https://www.pack.com',
+                issuer: 'https://www.package.com',
                 audience: userID,
             }
             JWT.sign(payload, secret, options, (err, token) => {
