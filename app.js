@@ -13,11 +13,12 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))
 
 app.listen(3000, () => {
-    console.log("Server running")
+    console.log("Server now running")
 })
 
 app.get('/', (req, res, next) => {
-    console.log("Homepage");
+    console.log("Home page");
+    console.log("Server still running");
     next()
 })
 
