@@ -13,12 +13,12 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))
 
 app.listen(3000, () => {
-    console.log("Server now running")
+    console.log("Server now running on port 3000")
 })
 
 app.get('/', (req, res, next) => {
-    console.log("Home page");
-    console.log("Server still running");
+    console.log("Homepage");
+    console.log("Homepage response");
     next()
 })
 
